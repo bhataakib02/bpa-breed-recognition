@@ -7,5 +7,7 @@
     "startCommand": "cd backend && npm start",
     "healthcheckPath": "/api/health",
     "healthcheckTimeout": 300
-  }
+  },
+  "buildCommand": "cd backend && npm install",
+  "rootDirectory": "backend"
 }
