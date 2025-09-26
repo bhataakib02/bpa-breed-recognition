@@ -8,6 +8,6 @@
     "healthcheckPath": "/api/health",
     "healthcheckTimeout": 300
   },
-  "buildCommand": "cd backend && npm install",
+  "buildCommand": "cd backend && npm install && echo 'Backend build complete'",
   "rootDirectory": "backend"
 }
