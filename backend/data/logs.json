@@ -1372,5 +1372,134 @@
       "userId": "o6RjZwLCzzSybqEvvHyz4"
     },
     "timestamp": "2025-09-26T09:10:50.841Z"
+  },
+  {
+    "action": "auth.register",
+    "data": {
+      "userId": "Cu1F-dqtM5Pl97U-SI04D",
+      "role": "flw",
+      "location": "reep, slim, gurt"
+    },
+    "timestamp": "2025-09-26T10:22:09.788Z"
+  },
+  {
+    "action": "animal.create",
+    "data": {
+      "id": "aG6pda3YgSIzgMWGM3_ey",
+      "by": "Cu1F-dqtM5Pl97U-SI04D"
+    },
+    "timestamp": "2025-09-26T10:23:00.699Z"
+  },
+  {
+    "action": "animal.create",
+    "data": {
+      "id": "u4FBT79HWP5-8fVbgYszv",
+      "by": "Cu1F-dqtM5Pl97U-SI04D"
+    },
+    "timestamp": "2025-09-26T10:24:24.145Z"
+  },
+  {
+    "action": "auth.login",
+    "data": {
+      "userId": "trdybpi4djsIp0PopCSS4"
+    },
+    "timestamp": "2025-09-26T10:25:37.561Z"
+  },
+  {
+    "action": "auth.login",
+    "data": {
+      "userId": "o6RjZwLCzzSybqEvvHyz4"
+    },
+    "timestamp": "2025-09-26T10:26:20.004Z"
+  },
+  {
+    "action": "animal.approve",
+    "data": {
+      "id": "u4FBT79HWP5-8fVbgYszv",
+      "by": "o6RjZwLCzzSybqEvvHyz4"
+    },
+    "timestamp": "2025-09-26T10:26:46.519Z"
+  },
+  {
+    "action": "animal.approve",
+    "data": {
+      "id": "oiEnvIlqddaq36SZhrgYa",
+      "by": "o6RjZwLCzzSybqEvvHyz4"
+    },
+    "timestamp": "2025-09-26T10:27:05.099Z"
+  },
+  {
+    "action": "animal.approve",
+    "data": {
+      "id": "6tYObVIezCaNAWMrTZHJ5",
+      "by": "o6RjZwLCzzSybqEvvHyz4"
+    },
+    "timestamp": "2025-09-26T10:27:05.127Z"
+  },
+  {
+    "action": "animal.approve",
+    "data": {
+      "id": "u4FBT79HWP5-8fVbgYszv",
+      "by": "o6RjZwLCzzSybqEvvHyz4"
+    },
+    "timestamp": "2025-09-26T10:27:05.159Z"
+  },
+  {
+    "action": "auth.login",
+    "data": {
+      "userId": "k8nC58b83BqavjshB54ob"
+    },
+    "timestamp": "2025-09-26T10:27:22.866Z"
+  },
+  {
+    "action": "vet.disease_detected",
+    "data": {
+      "vetId": "k8nC58b83BqavjshB54ob",
+      "diseasesFound": 0,
+      "overallHealth": 0,
+      "animalId": null
+    },
+    "timestamp": "2025-09-26T10:27:47.489Z"
+  },
+  {
+    "action": "vet.disease_detected",
+    "data": {
+      "vetId": "k8nC58b83BqavjshB54ob",
+      "diseasesFound": 0,
+      "overallHealth": 0,
+      "animalId": null
+    },
+    "timestamp": "2025-09-26T10:28:08.319Z"
+  },
+  {
+    "action": "vet.health_record_added",
+    "data": {
+      "animalId": "6tYObVIezCaNAWMrTZHJ5",
+      "recordId": "eP9ZR5yov25Dopdror-aB",
+      "vetId": "k8nC58b83BqavjshB54ob"
+    },
+    "timestamp": "2025-09-26T10:30:05.243Z"
+  },
+  {
+    "action": "auth.login",
+    "data": {
+      "userId": "pa7q_sz0zOHkI9aPeVYjd"
+    },
+    "timestamp": "2025-09-26T10:30:21.309Z"
+  },
+  {
+    "action": "auth.login",
+    "data": {
+      "userId": "trdybpi4djsIp0PopCSS4"
+    },
+    "timestamp": "2025-09-26T10:30:44.081Z"
+  },
+  {
+    "action": "animal.approve",
+    "data": {
+      "id": "aG6pda3YgSIzgMWGM3_ey",
+      "by": "trdybpi4djsIp0PopCSS4"
+    },
+    "timestamp": "2025-09-26T10:31:08.749Z"
   }
 ]
