@@ -336,7 +336,7 @@ function App() {
           padding: 'var(--spacing-xl) 0',
           background: 'var(--color-bg-primary)'
         }}>
-          <div className="container">
+      <div className="container">
             <div style={{
               textAlign: 'center',
               marginBottom: 'var(--spacing-xl)'
@@ -561,8 +561,8 @@ function App() {
               >
                 Learn More
               </Link>
-            </div>
-          </div>
+        </div>
+      </div>
         </section>
       </main>
       <Footer />
