@@ -36,7 +36,7 @@
     "vite": "npm:rolldown-vite@7.1.12"
   },
   "engines": {
-    "node": "18.x",
+    "node": "22.x",
     "npm": ">=8.0.0"
   },
   "packageManager": "npm@8.19.4",
