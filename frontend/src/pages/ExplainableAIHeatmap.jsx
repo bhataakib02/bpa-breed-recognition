@@ -15,21 +15,21 @@ export default function ExplainableAIHeatmap() {
     {
       id: 'holstein-1',
       name: 'Holstein Cow',
-      url: 'https://images.unsplash.com/photo-1560114928-40f1f1eb26a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
+      url: 'https://cdn.britannica.com/11/136111-050-174C2796/Holstein-cow.jpg?w=300',
       actualBreed: 'Holstein',
       description: 'Black and white dairy cow'
     },
     {
       id: 'gir-1',
       name: 'Gir Bull',
-      url: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
+      url: 'https://sagbidaj.org/wp-content/webp-express/webp-images/uploads/2023/01/GR-10039-5-scaled.jpg.webp',
       actualBreed: 'Gir',
       description: 'Reddish-brown humped cattle'
     },
     {
       id: 'sahiwal-1',
       name: 'Sahiwal Cow',
-      url: 'https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
+      url: 'https://docs.krishnayangauraksha.org/blog/17_08_2024_12_22_51_Is%20Sahiwal%20cow%20milk%20good%20for%20health.jpeg',
       actualBreed: 'Sahiwal',
       description: 'Reddish-brown with white spots'
     }
@@ -249,7 +249,7 @@ export default function ExplainableAIHeatmap() {
                 >
                   <div style={{
                     width: '100%',
-                    height: '120px',
+                    height: '200px',
                     backgroundImage: `url(${image.url})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
@@ -281,7 +281,8 @@ export default function ExplainableAIHeatmap() {
                       alt={selectedImage.name}
                       style={{
                         width: '100%',
-                        height: 'auto',
+                        height: '400px',
+                        objectFit: 'cover',
                         borderRadius: 'var(--radius-md)',
                         border: '2px solid #e0e0e0'
                       }}
@@ -303,7 +304,8 @@ export default function ExplainableAIHeatmap() {
                       alt="Base image"
                       style={{
                         width: '100%',
-                        height: 'auto',
+                        height: '400px',
+                        objectFit: 'cover',
                         borderRadius: 'var(--radius-md)',
                         border: '2px solid #e0e0e0'
                       }}
@@ -315,7 +317,7 @@ export default function ExplainableAIHeatmap() {
                         top: 0,
                         left: 0,
                         width: '100%',
-                        height: '100%',
+                        height: '400px',
                         borderRadius: 'var(--radius-md)',
                         pointerEvents: 'none'
                       }}
