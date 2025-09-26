@@ -1,0 +1,120 @@
+[
+  {
+    "id": "trdybpi4djsIp0PopCSS4",
+    "name": "Admin",
+    "email": "admin@example.com",
+    "role": "admin",
+    "passwordHash": "$2a$10$iopDl3flkyJeOff3ixLTFu0gH6W2VXF.Duri0gNgPW3ZM3Z0Q1pMG"
+  },
+  {
+    "id": "o6RjZwLCzzSybqEvvHyz4",
+    "name": "haroom",
+    "email": "haroon@example.com",
+    "phone": "4561230789",
+    "role": "supervisor",
+    "passwordHash": "$2a$10$1y8.yjlPsVfHSB.EWL/2t.xLnXXkAGwsozdg.SIKXl8whL0BYopPq",
+    "createdAt": "2025-09-25T20:06:54.856Z",
+    "isActive": true,
+    "permissions": [
+      "review_animals",
+      "approve_animals",
+      "view_team_performance",
+      "bulk_operations"
+    ]
+  },
+  {
+    "id": "k8nC58b83BqavjshB54ob",
+    "name": "ayaan",
+    "email": "ayaan@example.com",
+    "phone": "7896321450",
+    "role": "vet",
+    "passwordHash": "$2a$10$zUPqY1YF5siY2Yi7X0DlrO44T/HFDc40VsSVb9/sk3Kh59J02uBl2",
+    "createdAt": "2025-09-25T20:10:55.535Z",
+    "isActive": true,
+    "permissions": [
+      "view_animals",
+      "update_health",
+      "schedule_treatments",
+      "view_health_reports"
+    ]
+  },
+  {
+    "id": "6JoHdJOHn2xJqwCe2nlnW",
+    "name": "trisha",
+    "email": "trisha@example.com",
+    "phone": "7410258963",
+    "role": "govt",
+    "passwordHash": "$2a$10$6lFFpUL/Cd5gA3CxL6Y1N.jdbUwEmpuX787lpaZ5goNEvMF7U4LWu",
+    "createdAt": "2025-09-25T20:12:15.924Z",
+    "isActive": true,
+    "permissions": [
+      "view_analytics",
+      "export_data",
+      "view_reports"
+    ]
+  },
+  {
+    "id": "IDRcTGTnloNkIAPQZY-zQ",
+    "name": "aakib",
+    "email": "aakib@gmail.com",
+    "phone": "8521479630",
+    "role": "flw",
+    "passwordHash": "$2a$10$/TWQ4DXsVa29e..8RhywEu1cWwtH31O.IOtIN7ZPeKqTlnuAmx0uS",
+    "createdAt": "2025-09-26T06:14:18.349Z",
+    "isActive": true,
+    "aadhaarId": "789654120369",
+    "village": "dsfgfhgj",
+    "district": "cvxcj",
+    "state": "zdx",
+    "biometricEnabled": true,
+    "assignedVillages": [
+      "dsfgfhgj"
+    ],
+    "permissions": [
+      "create_animal",
+      "view_own_animals",
+      "update_own_animals"
+    ],
+    "flwId": "FLW258349NXH"
+  },
+  {
+    "id": "pa7q_sz0zOHkI9aPeVYjd",
+    "name": "akeem",
+    "email": "akeem@gmail.com",
+    "phone": "98765432011",
+    "role": "flw",
+    "passwordHash": "$2a$10$kJMCQvuMvfgcSxAx9Spj5.g4LIZsqlPSIxMxVqRViLe9B57w7bePS",
+    "createdAt": "2025-09-26T06:15:35.001Z",
+    "isActive": true,
+    "aadhaarId": "789654120367",
+    "village": "dsfgfhgj",
+    "district": "cvxcj",
+    "state": "zdx",
+    "biometricEnabled": true,
+    "assignedVillages": [
+      "dsfgfhgj"
+    ],
+    "permissions": [
+      "create_animal",
+      "view_own_animals",
+      "update_own_animals"
+    ],
+    "flwId": "FLW3350016YV"
+  },
+  {
+    "id": "4WSBnch9F4LB48DSKEdeG",
+    "name": "haroon",
+    "email": "haroon1@example.com",
+    "phone": "04561230789",
+    "role": "supervisor",
+    "passwordHash": "$2a$10$nX29uM06e1THHU4vP93Gy.nhnPHXafKqboC1emqNr/CuBjV95tG2O",
+    "createdAt": "2025-09-26T07:26:32.442Z",
+    "isActive": true,
+    "permissions": [
+      "review_animals",
+      "approve_animals",
+      "view_team_performance",
+      "bulk_operations"
+    ]
+  }
+]

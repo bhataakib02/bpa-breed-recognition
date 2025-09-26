@@ -1,0 +1,49 @@
+[
+  {
+    "id": "oiEnvIlqddaq36SZhrgYa",
+    "createdAt": "2025-09-26T06:14:57.143Z",
+    "createdBy": "IDRcTGTnloNkIAPQZY-zQ",
+    "flwId": "FLW258349NXH",
+    "status": "approved",
+    "ownerName": "sdfghj44",
+    "location": "ggggg",
+    "notes": "",
+    "predictedBreed": "Holstein (Cattle)",
+    "ageMonths": 150,
+    "gender": "female",
+    "imageUrls": [
+      "/uploads/oiEnvIlqddaq36SZhrgYa_0.jpg"
+    ],
+    "gps": null,
+    "capturedAt": null,
+    "approvedAt": "2025-09-26T06:47:34.226Z",
+    "approvedBy": "o6RjZwLCzzSybqEvvHyz4",
+    "updatedAt": "2025-09-26T07:04:44.376Z",
+    "updatedBy": "o6RjZwLCzzSybqEvvHyz4"
+  },
+  {
+    "id": "6tYObVIezCaNAWMrTZHJ5",
+    "createdAt": "2025-09-26T06:16:08.568Z",
+    "createdBy": "pa7q_sz0zOHkI9aPeVYjd",
+    "flwId": "FLW3350016YV",
+    "status": "approved",
+    "ownerName": "zxczcvxbcnv111",
+    "location": " cxvbn",
+    "notes": "",
+    "predictedBreed": "buffalow",
+    "ageMonths": 187,
+    "gender": "female",
+    "imageUrls": [
+      "/uploads/6tYObVIezCaNAWMrTZHJ5_0.jpg"
+    ],
+    "gps": {
+      "lat": 20.22102720737705,
+      "lng": 85.73775107213115
+    },
+    "capturedAt": "2025-09-26T06:15:49.452Z",
+    "approvedAt": "2025-09-26T06:47:34.251Z",
+    "approvedBy": "o6RjZwLCzzSybqEvvHyz4",
+    "updatedAt": "2025-09-26T06:40:12.470Z",
+    "updatedBy": "trdybpi4djsIp0PopCSS4"
+  }
+]
