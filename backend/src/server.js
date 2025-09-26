@@ -10,6 +10,7 @@ const { createServer } = require('http');
 const { Server } = require('socket.io');
 const BreedPredictor = require('./ai/BreedPredictor');
 const ConvNeXtPredictor = require('./ai/ConvNeXtPredictor');
+const PyTorchPredictor = require('./ai/PyTorchPredictor');
 const DiseaseDetector = require('./ai/DiseaseDetector');
 const NotificationService = require('./services/NotificationService');
 const AdvancedNotificationService = require('./services/AdvancedNotificationService');
@@ -21,6 +22,7 @@ const MarketplaceService = require('./services/MarketplaceService');
 
 const predictor = new BreedPredictor();
 const convnextPredictor = new ConvNeXtPredictor();
+const pytorchPredictor = new PyTorchPredictor();
 const diseaseDetector = new DiseaseDetector();
 const notificationService = new NotificationService();
 const advancedNotificationService = new AdvancedNotificationService();
@@ -31,6 +33,7 @@ const arService = new ARService();
 const marketplaceService = new MarketplaceService();
 predictor.loadModel().catch(console.error);
 convnextPredictor.loadModel().catch(console.error);
+pytorchPredictor.loadModel().catch(console.error);
 
 const app = express();
 const server = createServer(app);
@@ -79,10 +82,45 @@ function broadcastUpdate(type, data, room = 'all') {
   io.to(room).emit('update', { type, data, timestamp: new Date().toISOString() });
 }
 
+// Helper function to combine predictions from multiple models
+function combineModelPredictions(pytorchPredictions, convnextPredictions) {
+  try {
+    // Create a map to store combined scores
+    const breedScores = new Map();
+    
+    // Add PyTorch model predictions (weight: 0.6)
+    pytorchPredictions.forEach(pred => {
+      const breed = pred.breed;
+      const score = pred.confidence * 0.6;
+      breedScores.set(breed, (breedScores.get(breed) || 0) + score);
+    });
+    
+    // Add ConvNeXt model predictions (weight: 0.4)
+    convnextPredictions.forEach(pred => {
+      const breed = pred.breed;
+      const score = pred.confidence * 0.4;
+      breedScores.set(breed, (breedScores.get(breed) || 0) + score);
+    });
+    
+    // Convert to array and sort by combined score
+    const combinedPredictions = Array.from(breedScores.entries())
+      .map(([breed, score]) => ({ breed, confidence: Math.min(1.0, score) }))
+      .sort((a, b) => b.confidence - a.confidence)
+      .slice(0, 5); // Top 5 predictions
+    
+    console.log('Combined predictions:', combinedPredictions);
+    return combinedPredictions;
+  } catch (error) {
+    console.error('Error combining predictions:', error);
+    // Fallback to PyTorch predictions
+    return pytorchPredictions;
+  }
+}
+
 // Ensure directories exist (skip on Vercel as it's read-only)
 if (!process.env.VERCEL) {
-  if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
-  if (!fs.existsSync(IMAGES_DIR)) fs.mkdirSync(IMAGES_DIR, { recursive: true });
+if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
+if (!fs.existsSync(IMAGES_DIR)) fs.mkdirSync(IMAGES_DIR, { recursive: true });
 }
 
 app.use(cors());
@@ -759,9 +797,16 @@ app.post('/api/predict', authMiddleware, upload.single('image'), async (req, res
       });
     }
     
-    const predictions = await convnextPredictor.predictBreed(req.file.buffer);
-    const isCrossbreed = await convnextPredictor.isCrossbreed(predictions);
-    const heatmapData = await convnextPredictor.generateHeatmap(req.file.buffer, predictions);
+    // Use both models for better accuracy
+    const [pytorchPredictions, convnextPredictions] = await Promise.all([
+      pytorchPredictor.predictBreed(req.file.buffer),
+      convnextPredictor.predictBreed(req.file.buffer)
+    ]);
+    
+    // Combine predictions from both models
+    const combinedPredictions = combineModelPredictions(pytorchPredictions, convnextPredictions);
+    const isCrossbreed = await pytorchPredictor.isCrossbreed(combinedPredictions);
+    const heatmapData = await pytorchPredictor.generateHeatmap(req.file.buffer, combinedPredictions);
     
     // Create a simple heatmap image (placeholder)
     const heatmapId = nanoid();
@@ -782,7 +827,9 @@ app.post('/api/predict', authMiddleware, upload.single('image'), async (req, res
     res.json({
       species: speciesResult.species,
       speciesConfidence: speciesResult.confidence,
-      predictions,
+      predictions: combinedPredictions,
+      pytorchPredictions: pytorchPredictions,
+      convnextPredictions: convnextPredictions,
       isCrossbreed,
       heatmapUrl: `/uploads/${heatmapId}_heatmap.png`
     });
@@ -2532,8 +2579,8 @@ app.use((err, _req, res, _next) => {
 if (process.env.VERCEL) {
   module.exports = app;
 } else {
-  server.listen(port, () => {
-    console.log(`API listening on :${port}`);
-    console.log(`WebSocket server ready for real-time updates`);
-  });
+server.listen(port, () => {
+  console.log(`API listening on :${port}`);
+  console.log(`WebSocket server ready for real-time updates`);
+});
 }
