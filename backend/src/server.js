@@ -43,8 +43,8 @@ const io = new Server(server, {
 
 const port = process.env.PORT || 4000;
 const JWT_SECRET = process.env.JWT_SECRET || 'dev-secret-change-me';
-const DATA_DIR = path.join(__dirname, '..', 'data');
-const IMAGES_DIR = path.join(DATA_DIR, 'images');
+const DATA_DIR = process.env.VERCEL ? '/tmp/data' : path.join(__dirname, '..', 'data');
+const IMAGES_DIR = process.env.VERCEL ? '/tmp/images' : path.join(DATA_DIR, 'images');
 
 // Socket.IO authentication and real-time updates
 io.use((socket, next) => {
@@ -79,8 +79,11 @@ function broadcastUpdate(type, data, room = 'all') {
   io.to(room).emit('update', { type, data, timestamp: new Date().toISOString() });
 }
 
-if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
-if (!fs.existsSync(IMAGES_DIR)) fs.mkdirSync(IMAGES_DIR, { recursive: true });
+// Ensure directories exist (skip on Vercel as it's read-only)
+if (!process.env.VERCEL) {
+  if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
+  if (!fs.existsSync(IMAGES_DIR)) fs.mkdirSync(IMAGES_DIR, { recursive: true });
+}
 
 app.use(cors());
 app.use(express.json());
@@ -2525,7 +2528,12 @@ app.use((err, _req, res, _next) => {
   res.status(500).json({ error: 'Server error' });
 });
 
-server.listen(port, () => {
-  console.log(`API listening on :${port}`);
-  console.log(`WebSocket server ready for real-time updates`);
-});
+// Export for Vercel serverless functions
+if (process.env.VERCEL) {
+  module.exports = app;
+} else {
+  server.listen(port, () => {
+    console.log(`API listening on :${port}`);
+    console.log(`WebSocket server ready for real-time updates`);
+  });
+}
