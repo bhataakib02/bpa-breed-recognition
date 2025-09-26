@@ -104,5 +104,28 @@
     "capturedAt": "2025-09-26T10:23:28.255Z",
     "approvedAt": "2025-09-26T10:27:05.155Z",
     "approvedBy": "o6RjZwLCzzSybqEvvHyz4"
+  },
+  {
+    "id": "r_8Y8JczReWOFA2NKBYx3",
+    "createdAt": "2025-09-26T10:51:40.992Z",
+    "createdBy": "pa7q_sz0zOHkI9aPeVYjd",
+    "flwId": "FLW3350016YV",
+    "status": "approved",
+    "ownerName": "treem",
+    "location": "odisha",
+    "notes": "",
+    "predictedBreed": "Sahiwal (Cattle)",
+    "ageMonths": 170,
+    "gender": "female",
+    "imageUrls": [
+      "/uploads/r_8Y8JczReWOFA2NKBYx3_0.jpg"
+    ],
+    "gps": {
+      "lat": 20.22102720737705,
+      "lng": 85.73775107213115
+    },
+    "capturedAt": "2025-09-26T10:50:57.225Z",
+    "approvedAt": "2025-09-26T10:52:29.124Z",
+    "approvedBy": "trdybpi4djsIp0PopCSS4"
   }
 ]
