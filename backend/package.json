@@ -28,5 +28,10 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
-  }
+  },
+  "engines": {
+    "node": "18.x",
+    "npm": ">=8.0.0"
+  },
+  "packageManager": "npm@8.19.4"
 }
